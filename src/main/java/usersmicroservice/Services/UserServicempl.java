@@ -68,8 +68,8 @@ public List<User> getAllUser() {
 
 }
 @Override
-public User findUserById(Long id) {
-	Optional<User> utOptional = userRep.findById(id); 
+public User findUserById(Long user_id) {
+	Optional<User> utOptional = userRep.findById(user_id); 
 	
 	if(utOptional.isEmpty() ) {
 		return null;
@@ -89,15 +89,15 @@ public User updateUser(User user) {
 
 
     @Override
-    public void deleteUserRole(Long userId) {
-        Optional<User> userOptional = userRep.findById(userId);
+    public void deleteUserRole(Long user_id) {
+        Optional<User> userOptional = userRep.findById(user_id);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
 
             // Supprimer l'utilisateur et les relations dans la table de jointure
             user.getRoles().clear(); // Supprime toutes les relations ManyToMany
-            userRep.deleteById(userId);
+            userRep.deleteById(user_id);
         }
         
         System.out.println("user deleted");
@@ -160,6 +160,7 @@ public User findUserByMatricule(String matricule) {
 	return userRep.findByMatricule(matricule);
 
 }
+
 
 
 }

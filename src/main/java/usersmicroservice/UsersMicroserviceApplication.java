@@ -6,10 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import jakarta.annotation.PostConstruct;
-import usersmicroservice.Services.UserService;
-import usersmicroservice.entities.Role;
-import usersmicroservice.entities.User;
+
 
 @SpringBootApplication
 public class UsersMicroserviceApplication {
@@ -17,9 +14,11 @@ public class UsersMicroserviceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UsersMicroserviceApplication.class, args);
 	}
+	 @Bean
+	    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	        return new BCryptPasswordEncoder();
+	    }
 	
-	@Autowired
-	UserService userService;
 	 /*@PostConstruct
 	void init_users() {
 	//ajouter les rôles
@@ -38,11 +37,6 @@ public class UsersMicroserviceApplication {
 	userService.addRoleToUser("yassine", "USER");
 	} */
 	 
-	 
-	@Bean
-	BCryptPasswordEncoder getBCE() {
-	return new BCryptPasswordEncoder();
-	}
 
 
 }

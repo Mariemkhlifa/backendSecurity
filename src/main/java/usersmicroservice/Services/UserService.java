@@ -11,9 +11,10 @@ public interface UserService {
 	public User findUserById(Long user_id);
 	public User updateUser(User user);
 	public void deleteUserRole(Long user_id);
-	public User updateUserById(Long id, User updatedUser);
+	public User updateUserById(Long user_id, User updatedUser);
 	public User getUserByMailAndPassword(String email, String password);
 	public User findUserByMatricule(String matricule);
+
 	 
 	User CreateUser(User user);
 	User findUserByUsername (String username);

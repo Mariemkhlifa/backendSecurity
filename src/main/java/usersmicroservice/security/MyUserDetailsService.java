@@ -24,6 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws
 	UsernameNotFoundException {
 		User user = userService.findUserByUsername(username);
+
 		if (user==null)
 			throw new UsernameNotFoundException("Utilisateur introuvable !");
 		List<GrantedAuthority> auths = new ArrayList<>();

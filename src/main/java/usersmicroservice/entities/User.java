@@ -19,7 +19,6 @@ public class User {
 @Id
 @GeneratedValue (strategy=GenerationType.IDENTITY)
 private Long user_id;
-
 @Column(unique=true)
 private String username;
 private String lastName;
@@ -30,7 +29,6 @@ private String matricule;
 private String tel;
 private Date dateNaissance;
 
-private Boolean enabled;
 
 
  @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
@@ -59,7 +57,6 @@ public User(Long user_id, String username, String lastName, String email, String
 	this.matricule = matricule;
 	this.tel = tel;
 	this.dateNaissance = dateNaissance;
-	this.enabled = enabled;
 	this.roles = roles;
 }
 
@@ -156,14 +153,7 @@ public void setDateNaissance(Date dateNaissance) {
 }
 
 
-public Boolean getEnabled() {
-	return enabled;
-}
 
-
-public void setEnabled(Boolean enabled) {
-	this.enabled = enabled;
-}
 
 
 public List<Role> getRoles() {
